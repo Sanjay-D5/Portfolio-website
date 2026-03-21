@@ -1,0 +1,403 @@
+*,
+*::before,
+*::before
+{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --cream: #f5f0e8;
+    --ink:   #1a1814;
+    --rust:  #c45c2e;
+    --muted: #7a7060;
+    --card:  #ede8df;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 4rem;
+    background: rgba(245,240,232,0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(26,24,20,0.08);
+}
+
+.nav__logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.nav__links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.nav__links a{
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+}
+
+.nav__links a:hover {
+    color: var(--rust);
+}
+
+/* Hero section */
+#hero{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero__bg__text{
+    position: absolute;
+    top: 50%;
+    right: -2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(8rem, 18vw, 20rem);
+    transform: translateY(-50%);
+    font-weight: 700;
+    color: rgba(196,92,46,0.06);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: -0.04em;
+}
+
+.hero__content{
+    max-width: 720px;
+}
+
+.hero__tag{
+    display: inline-block;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: var(--rust);
+    padding: 0.35rem 0.9rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.1s forwards;
+}
+
+h1{
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    opacity: 0;
+      animation: fadeUp 0.7s 0.25s forwards;
+}
+
+h1 em {
+    font-style: italic;
+    color: var(--rust);
+}
+
+.hero__description{
+    color: var(--muted);
+    font-size: 1.15rem;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    opacity: 0;
+      animation: fadeUp 0.7s 0.4s forwards;
+}
+
+.hero__cta{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.4s forwards;
+}
+
+.btn{
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+    padding: 0.85rem 2rem;
+    font-weight: 500;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.btn--primary{
+    color: #fff;
+    background-color: var(--ink);
+}
+
+.btn--secondary{
+    background-color: transparent;
+    color: var(--ink);
+    border: 2px solid var(--ink);
+}
+
+.btn--secondary:hover{
+    background-color: var(--ink);
+    color: var(--cream);
+}
+
+.btn--primary:hover{
+    background-color: var(--rust);
+    border-color: var(--rust);
+}
+
+/* Shared section */
+section {
+    padding: 6rem 4rem;
+}
+
+.section__label{
+    font-size: 0.75rem;
+    color: var(--rust);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+h2{
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+}
+
+.section__inner{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* About section */
+#about {
+    background-color: var(--ink);
+    color: var(--cream);
+}
+
+.about__grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.about__photo{
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.about__description p{
+   color: rgba(245,240,232,0.72);
+   font-weight: 200;
+   margin-bottom: 1.2rem;
+   font-size: 1.05rem;
+}
+
+.skills__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 0.6rem;
+    margin-top: 2rem;
+}
+
+.skills__list li{
+    background: rgba(245,240,232,0.08);
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(245,240,232,0.15);
+    font-size: 0.85rem;
+    border-radius: 2px;
+    color: var(--cream);
+    letter-spacing: 0.04em;
+}
+
+/* Project section */
+.projects{
+    background-color: var(--cream);
+}
+
+.project__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.card{
+    background: var(--card);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(26,24,20,0.07);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.card__body{
+    padding: 1.5rem;
+}
+.card__thumb{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: rgba(26,24,20,0.18);
+    width: 100%;
+    height: 200px;
+}
+
+.thumb--1 { background: #ddd5c5; }
+.thumb--2 { background: #c5cdd5; }
+.thumb--3 { background: #c5d5cc; }
+
+.card__tag{
+    text-transform: uppercase;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-weight: 200;
+}
+
+.card__title{
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+}
+
+.card__description{
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 200;
+    margin-bottom: 1.5rem;
+}
+
+.card__link{
+    color: var(--ink);
+    font-size: 0.85rem;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.card__link:hover {
+    color: var(--rust);
+    border-color: var(--rust);
+}
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(26,24,20,0.12);
+}
+
+/* Contact */
+#contact{
+    background-color: var(--rust);
+    text-align: center;
+    color: #fff;
+}
+
+.section__label{
+    color: rgba(255,255,255,0.6);
+}
+
+.contant__description{
+    max-width: 440px;
+    margin: 0 auto 2.5rem;
+    color: rgba(255,255,255,0.6);
+    font-size: 1.1rem;
+}
+
+.contact__link{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.contact__link a{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.9rem;
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    transition: border-color 0.2s;
+}
+
+.contact__link a:hover{
+    border-color: #fff;
+}
+
+/* ── FOOTER ── */
+footer {
+    background: var(--ink);
+    color: var(--muted);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    font-size: 0.82rem;
+}
+
+/* Animation */
+@keyframes fadeUp {
+    from {opacity: 0; transform: translateY(24px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {padding: 1.2rem 1.5rem;}
+    .nav__links {display: none;}
+    #hero, section {padding: 5rem 1.5rem 3rem;}
+    .section__label {color: #c45c2e;}
+    .about__grid {grid-template-columns: 1fr; gap: 2rem;}
+    .about__photo {max-height: 320px;}
+    .project__grid {grid-template-columns: 1fr; gap: 2rem;}
+}
